@@ -11,6 +11,6 @@ var blogpost2 = new MakeBlogpost("Getting into a rythym", blog2, "- Matt Augsbur
 var blogHolder = [blogpost1, blogpost2];
 
 blogHolder.forEach(function(i) {
-    var toPrint = "<article><h3>" + i.title + "</h3>" + "<p>" + i.text + "</p>" + "<p>" + i.date + "</p></article>";
+    var toPrint = "<article><blockquote>" + i.title + "</blockquote>" + "<p>" + i.text + "</p>" + "<p>" + i.date + "</p></article>";
     blogSpot.innerHTML += toPrint;
 });
