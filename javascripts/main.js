@@ -1,20 +1,56 @@
-var blogSpot = document.getElementById('blog');
-function MakeBlogpost(title, text, date) {
-    this.title = title;
-    this.text = text;
-    this.date = date;
-}
-var blog1 = "My first week has certainly been interesting. I had no idea what to expect coming in. I already am taking to the teaching style and progressing more quickly than I had anticipated. I learned how to effectively use the console and git with no previous knowledge on the subject. This was about the only Team Treehouse video that I didn't make it through. I also jumped to the more difficult javascript exercises after getting bored working with HTML. I had a ton of questions, but I managed to make to programs that work to the desired effect. I'm not gettting as much done at home as I would like, but I am gennerally happy with my current status.";
-var blog2 = "Week two has been a trip. I have become very comfortable with the git system. I don't neccesarily like it, but I get it. I have nearly completed all the exercises for the first milestone and feel comfortable with most of this baseline skills in html css and javascript. I spent most of the week working on my flexbox skills. I didn't get to work with javascript as much as I would have liked, but overall I am satisfied with my progress through this week. Also, I'm getting into my first team lead, so we shall see how that goes.";
-var blog3 = "This is definately a process of elation and frustration. I wake up study, go to class, study, and if I'm feeling good go home and study. Socializing with classmates seems to keep me sane. This weeks work has been mostly javascript with some Materialize thrown in. The javascript portion is a slow process. I am much more confortable with arrays and event listeners. Also, I learned to spell listener correctly on a regular basis. I started the week with... well i can't remember. I've been trying to push as many projects as possible, and they all seem to be blending in together. Oh yes, I created my first single page application for music history. That was neat. My goals currently are to push 3 to 4 more javascript exercises before Monday.";
-var blog4 = "I still have a long way to go. It doesn't feel like it's been a month, but apparrently it has been. I'm satisfied with how far I've come, but with that comes a drive to push even more. We're not encouraged to worry about where we are in relation to our classmates, but I'm not on top. And I want to be. This week I've been able to get a firm grasp on XHR requests and combing though the data. IIFE's were also covered this week. I could certainly use a bit more work on them. I have managed to complete a few of the exercises for them, but I would like to have a beter mental imgage of how they work. Here's to one Month and pressing on.";
-var blogpost1 = new MakeBlogpost("Here we go..", blog1, "- Matt Augsburger 3/7/17");
-var blogpost2 = new MakeBlogpost("Getting into a rythym", blog2, "- Matt Augsburger 3/13/17");
-var blogpost3 = new MakeBlogpost("This is my life", blog3, "- Matt Augsburger 3/21/17");
-var blogpost4 = new MakeBlogpost("A month in", blog4, "- Matt Augsburger 3/28/17")
-var blogHolder = [blogpost1, blogpost2, blogpost3, blogpost4];
+"use-strict"
 
-blogHolder.forEach(function(i) {
-    var toPrint = "<article><blockquote>" + i.title + "</blockquote>" + "<p>" + i.text + "</p>" + "<p>" + i.date + "</p></article>";
+var blogSpot = document.getElementById('blog');
+// function MakeBlogpost(title, text, date) {
+//     this.title = title;
+//     this.text = text;
+//     this.date = date;
+// }
+// DOC READY
+$(document).ready(function(){
+// JQUERY JSON REQUEST
+$.ajax({
+  url: "../blogs.json"
+}).done(function(object) {
+  console.log("json object", object[4].title);
+  for(let i = object.length - 1; i >= 0; i--) {
+    console.log(i);
+    var toPrint = `<article><blockquote>${object[i].title}</blockquote><p>${object[i].text}</p><p class="right">${object[i].author}</p><a class="blog-delete waves-effect waves-light btn red white-text">Delete</a></article>`;
     blogSpot.innerHTML += toPrint;
+    }
+    var deleteButtons = $('.blog-delete');
+    deleteButtons.click(function(e) {
+        e.target.closest('article').remove();
+    });
+});
+
+// JQUERY MODAL INITIALIZATION
+// $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+
+// JQUERY FOR BLOG SPA
+$('.show-blog').click(function(e) {
+    $('#blog-spot').removeClass('hide');
+    $('#main-content').addClass('hide');
+});
+
+$('.show-main-content').click(function(e) {
+    $('#blog-spot').addClass('hide');
+    $('#main-content').removeClass('hide');
+});
+
+// JQUERY - GRABBING NEW BLOG
+$('#new-blog-button').click(function(e) {
+    let title = $('#new-blog-title')['0'].value;
+    let text = $('#new-blog-text')['0'].value;
+    let author = $('#new-blog-author')['0'].value + " " + $('#new-blog-date')['0'].value;
+    console.log(title, text, author);
+    let toPrint = `<article><blockquote>${title}</blockquote><p>${text}</p><p class="right">${author}</p><a class="blog-delete waves-effect waves-light btn red white-text">Delete</a></article>`;
+        blogSpot.innerHTML = toPrint + blogSpot.innerHTML;
+    var deleteButtons = $('.blog-delete');
+    deleteButtons.click(function(e) {
+        e.target.closest('article').remove();
+    });
 });
