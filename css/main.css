@@ -16,3 +16,6 @@ blockquote {
 .left-margin {
     margin-left: 2em;
 }
+.padded {
+    padding: 1em;
+}
