@@ -21,7 +21,12 @@
     },
     {
         "title" : "Mornings Are Made For Coding",
-        "text" : "I love coding in the morning. Do I have to go to sleep super early?, Yes. Is it worth it?, Absolutely. This week has brought with me the wisdom that I can accomplish significantly more if I shut myself in a coffee shop at six in the am. In other news, I figured out IIFE's and secured a grasp in JQUERY. I also learned some basics in Firebase. This week has not been without struggle though. My team for the Chatty app was a but ahead of me in their knowledge base. I pushed through and learned the material. I didn't help out as much as I would have liked, but I did learn the material, which is what matters in the end. Overall another nice week. Keep it real Horse-Holes..",
+        "text" : "I love coding in the morning. Do I have to go to sleep super early?, Yes. Is it worth it?, Absolutely. This week has brought with me the wisdom that I can accomplish significantly more if I shut myself in a coffee shop at six in the am. In other news, I figured out IIFE's and secured a grasp in JQUERY. I also learned some basics in Firebase. This week has not been without struggle though. My team for the Chatty app was a bit ahead of me in their knowledge base. I pushed through and learned the material. I didn't help out as much as I would have liked, but I did learn the material, which is what matters in the end. Overall another nice week. Keep it real Horse-Holes..",
         "author" : "Matt Augsburger 2017-5-5"
+    },
+    {
+        "title" : "Hopping In The Deep End",
+        "text" : "Lots and lots of new concepts. This week started with with confidence, it ended with significantly less. We were introduced to promises, Browserify, and Handle Bars. I'm digging the promises, but the other two are giving me a bit of trouble. As far as productivity goes, I was only able to complete two exercises this week. I'm happy with the product, but the programming certainly took more time than that of previous milestones. Another week is in the books... Books, maybe I'll be able to start reading something other than documentation one day.",
+        "author" : "Matt Augsburger 2017-5-12"
     }
 ]
